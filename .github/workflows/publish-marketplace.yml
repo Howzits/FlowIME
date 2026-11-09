@@ -19,7 +19,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: contextime-marketplace
+  group: flowime-marketplace
   cancel-in-progress: false
 
 jobs:

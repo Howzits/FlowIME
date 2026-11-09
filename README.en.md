@@ -14,17 +14,17 @@
 </p>
 
 <p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=ContextIME.codex-terminal-auto-input"><img src="https://img.shields.io/visual-studio-marketplace/v/ContextIME.codex-terminal-auto-input?style=flat-square&amp;color=6574F7&amp;label=Marketplace" alt="Visual Studio Marketplace version"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=flowime.flowime"><img src="https://img.shields.io/visual-studio-marketplace/v/flowime.flowime?style=flat-square&amp;color=6574F7&amp;label=Marketplace" alt="Visual Studio Marketplace version"></a>
   <img src="https://img.shields.io/badge/platform-Windows_x64-1678D4?style=flat-square" alt="Windows x64">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-20B886?style=flat-square" alt="MIT License"></a>
 </p>
 
 <p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=ContextIME.codex-terminal-auto-input"><strong>Install from the Marketplace</strong></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=flowime.flowime"><strong>Install from the Marketplace</strong></a>
   &nbsp;·&nbsp;
   <a href="docs/USAGE.md">Usage guide (中文)</a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/Howzits/ContextIME/issues">Report an issue</a>
+  <a href="https://github.com/Howzits/FlowIME/issues">Report an issue</a>
 </p>
 
 <p align="center">
@@ -44,15 +44,15 @@
 
 Requires **Windows x64, VS Code 1.96+ or Insiders**, and a configured Chinese input method.
 
-Search the Marketplace for **FlowIME**, published by **ContextIME**, or run:
+Search the Marketplace for **FlowIME**, published by **flowime**, or run:
 
 ```powershell
-code --install-extension ContextIME.codex-terminal-auto-input
+code --install-extension flowime.flowime
 ```
 
 Enabled by default. Try typing in a chat input and the terminal; click the status bar item to pause.
 
-Formerly ContextIME. Existing users can update directly; extension ID and settings are unchanged.
+Formerly ContextIME. The publisher has changed: uninstall the old extension before installing FlowIME to avoid running both. Existing `autoInput.*` settings remain compatible.
 
 The interface follows the VS Code display language: Chinese for Chinese locales, English otherwise. No extra configuration is needed.
 
@@ -69,7 +69,7 @@ Preferences do not persist across helper sessions. Switching depends on control 
 
 ## Documentation and support
 
-[Usage and troubleshooting (中文)](docs/USAGE.md) · [Compatibility (中文)](docs/COMPATIBILITY.md) · [Maintenance and releases (中文)](docs/MAINTAINING.md) · [Changelog](CHANGELOG.md) · [Report an issue](https://github.com/Howzits/ContextIME/issues/new/choose)
+[Usage and troubleshooting (中文)](docs/USAGE.md) · [Compatibility (中文)](docs/COMPATIBILITY.md) · [Maintenance and releases (中文)](docs/MAINTAINING.md) · [Changelog](CHANGELOG.md) · [Report an issue](https://github.com/Howzits/FlowIME/issues/new/choose)
 
 No code or chat content is read. No keystroke listening, network requests, or telemetry. Currently limited to desktop VS Code on Windows; no system-wide switching.
 

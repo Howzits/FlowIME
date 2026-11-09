@@ -18,11 +18,11 @@ def verify(path, expected, source_root=ROOT, compare_helper=True):
         for key in ("name", "publisher", "version", "displayName", "author"):
             if package.get(key) != expected.get(key):
                 raise ValueError(f"Package {key} differs from source")
-        if package["publisher"] != "ContextIME":
-            raise ValueError("Unexpected publisher; do not release a local-tools package")
+        if package["publisher"] != "flowime":
+            raise ValueError("Unexpected publisher; expected flowime")
         manifest = ET.fromstring(archive.read("extension.vsixmanifest"))
         identity = manifest.find("v:Metadata/v:Identity", NS)
-        for key, value in {"Id": package["name"], "Publisher": "ContextIME", "Version": package["version"], "TargetPlatform": "win32-x64"}.items():
+        for key, value in {"Id": package["name"], "Publisher": "flowime", "Version": package["version"], "TargetPlatform": "win32-x64"}.items():
             if identity is None or identity.get(key) != value:
                 raise ValueError(f"Invalid manifest {key}")
         icon_path = "extension/" + package["icon"]

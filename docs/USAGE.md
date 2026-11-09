@@ -4,23 +4,25 @@
 
 ## 安装与旧版迁移
 
-正式市场版的完整扩展 ID 是 `ContextIME.codex-terminal-auto-input`，显示名称为 **FlowIME**，发布者 ID 沿用 **ContextIME**。
+正式市场版的完整扩展 ID 是 `flowime.flowime`，显示名称为 **FlowIME**，发布者 ID 为 **flowime**，开发者为 **haochen12**。
 
 ```powershell
-code --install-extension ContextIME.codex-terminal-auto-input
+code --install-extension flowime.flowime
 ```
 
-### 从本地版迁移
+### 从 ContextIME 或本地版迁移
+
+先卸载旧市场版 `ContextIME.codex-terminal-auto-input`，再安装 `flowime.flowime`。发布者变化后属于不同扩展，无法自动跨 ID 更新。原有 `autoInput.*` 设置继续生效。
 
 1. 在扩展视图搜索 `@id:local-tools.codex-terminal-auto-input`，卸载早期本地版本。
-2. 安装发布者为 **ContextIME** 的市场版。
+2. 安装发布者为 **flowime** 的市场版。
 3. 运行 `Developer: Reload Window`，多窗口使用时建议全部重载。
 
 配置仍使用 `autoInput.*` 前缀，无需逐项改名；输入框偏好保存在助手内存中，重启后清空。若早期独立 AutoInput 托盘工具仍在运行，也应先退出。
 
 ### 离线安装
 
-从 [GitHub Releases](https://github.com/Howzits/ContextIME/releases) 下载正式 Publisher 为 `ContextIME` 的 Windows x64 安装包，在扩展视图选择 `… → 从 VSIX 安装…`。
+从 [GitHub Releases](https://github.com/Howzits/FlowIME/releases) 下载正式 Publisher 为 `flowime` 的 Windows x64 安装包，在扩展视图选择 `… → 从 VSIX 安装…`。
 
 GitHub Releases 中早期的 `ContextIME-0.4.1.vsix` 使用 `local-tools` 发布者，与市场版是不同扩展 ID。迁移时请选市场版或上面的 `marketplace-win32-x64` 安装包。
 

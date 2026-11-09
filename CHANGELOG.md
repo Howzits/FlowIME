@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.1
+
+- 项目仓库迁移至 Howzits/FlowIME。
+- Publisher ID 更新为 flowime，内部扩展名更新为 flowime，完整扩展 ID 为 flowime.flowime。
+- 开发者继续为 haochen12，沿用 FlowIME Logo 和 autoInput 设置。
+- 旧版用户需卸载 ContextIME.codex-terminal-auto-input 后安装新版，避免重复运行；无法跨发布者自动升级。
+
 ## 0.5.0
 
 - ContextIME 更名为 FlowIME，开发者信息更新为 haochen12。

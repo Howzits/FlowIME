@@ -14,17 +14,17 @@
 </p>
 
 <p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=ContextIME.codex-terminal-auto-input"><img src="https://img.shields.io/visual-studio-marketplace/v/ContextIME.codex-terminal-auto-input?style=flat-square&amp;color=6574F7&amp;label=Marketplace" alt="Visual Studio Marketplace version"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=flowime.flowime"><img src="https://img.shields.io/visual-studio-marketplace/v/flowime.flowime?style=flat-square&amp;color=6574F7&amp;label=Marketplace" alt="Visual Studio Marketplace version"></a>
   <img src="https://img.shields.io/badge/platform-Windows_x64-1678D4?style=flat-square" alt="Windows x64">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-20B886?style=flat-square" alt="MIT License"></a>
 </p>
 
 <p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=ContextIME.codex-terminal-auto-input"><strong>从 VS Code 市场安装</strong></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=flowime.flowime"><strong>从 VS Code 市场安装</strong></a>
   &nbsp;·&nbsp;
   <a href="docs/USAGE.md">配置指南</a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/Howzits/ContextIME/issues">反馈问题</a>
+  <a href="https://github.com/Howzits/FlowIME/issues">反馈问题</a>
 </p>
 
 <p align="center">
@@ -44,15 +44,15 @@
 
 需要 **Windows x64、VS Code 1.96+ 或 Insiders**，以及已配置的中文输入法。
 
-在扩展市场搜索 **FlowIME**，确认发布者为 **ContextIME** 后安装，或执行：
+在扩展市场搜索 **FlowIME**，确认发布者为 **flowime** 后安装，或执行：
 
 ```powershell
-code --install-extension ContextIME.codex-terminal-auto-input
+code --install-extension flowime.flowime
 ```
 
 安装后默认启用。切换到聊天框或终端试打，点击状态栏可暂停。
 
-原名 ContextIME，现有用户直接更新即可，设置与扩展 ID 保持不变。
+原名 ContextIME。更换发布者后，旧版用户需卸载旧扩展再安装 FlowIME，避免两个版本同时运行；`autoInput.*` 设置保持兼容。
 
 界面跟随 VS Code 显示语言：中文显示中文，其他语言默认英文，无需额外配置。
 
@@ -69,7 +69,7 @@ code --install-extension ContextIME.codex-terminal-auto-input
 
 ## 文档与反馈
 
-[使用与故障排查](docs/USAGE.md) · [兼容性记录](docs/COMPATIBILITY.md) · [维护与发布](docs/MAINTAINING.md) · [更新日志](CHANGELOG.md) · [反馈问题](https://github.com/Howzits/ContextIME/issues/new/choose)
+[使用与故障排查](docs/USAGE.md) · [兼容性记录](docs/COMPATIBILITY.md) · [维护与发布](docs/MAINTAINING.md) · [更新日志](CHANGELOG.md) · [反馈问题](https://github.com/Howzits/FlowIME/issues/new/choose)
 
 不读取代码或聊天正文，不监听按键，不联网，不上传遥测。当前仅支持 Windows 桌面版 VS Code，不提供系统全局切换。
 

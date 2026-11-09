@@ -3,7 +3,7 @@ $ErrorActionPreference = 'Stop'
 Push-Location $PSScriptRoot
 try {
 $metadata = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'package.json') -Raw | ConvertFrom-Json
-if ($metadata.publisher -cne 'ContextIME') { throw 'Publisher must be ContextIME.' }
+if ($metadata.publisher -cne 'flowime') { throw 'Publisher must be flowime.' }
 $packager = Join-Path $PSScriptRoot 'node_modules\@vscode\vsce\vsce'
 if (!(Test-Path -LiteralPath $packager)) { throw 'Run npm ci --ignore-scripts first.' }
 $framework = Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319'

@@ -67,7 +67,7 @@ jobs:
         run: |
           $metadata = Get-Content source/package.json -Raw | ConvertFrom-Json
           $version = $metadata.version
-          $brand = $metadata.displayName
+          $brand = 'FlowIME'
           if ($env:RELEASE_TAG -cne "v$version") { throw 'Release tag and source version differ.' }
           $release = gh release view $env:RELEASE_TAG --json isDraft,isPrerelease | ConvertFrom-Json
           if ($LASTEXITCODE -ne 0) { throw 'Release not found.' }
@@ -86,7 +86,7 @@ jobs:
         run: |
           $metadata = Get-Content package.json -Raw | ConvertFrom-Json
           $version = $metadata.version
-          $brand = $metadata.displayName
+          $brand = 'FlowIME'
           node ../automation/node_modules/@vscode/vsce/vsce publish --oidc --packagePath "../release-assets/${brand}-$version-win32-x64.vsix" --skip-duplicate
           if ($LASTEXITCODE -ne 0) { throw 'Marketplace publish failed. Check the Trusted Publishing policy.' }
       - name: Report verification-only run

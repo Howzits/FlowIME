@@ -18,11 +18,11 @@ def verify(path, expected, source_root=ROOT, compare_helper=True):
         for key in ("name", "publisher", "version", "displayName", "author"):
             if package.get(key) != expected.get(key):
                 raise ValueError(f"Package {key} differs from source")
-        if package["publisher"] != "flowime":
-            raise ValueError("Unexpected publisher; expected flowime")
+        if package["publisher"] != "FlowIME":
+            raise ValueError("Unexpected publisher; expected FlowIME")
         manifest = ET.fromstring(archive.read("extension.vsixmanifest"))
         identity = manifest.find("v:Metadata/v:Identity", NS)
-        for key, value in {"Id": package["name"], "Publisher": "flowime", "Version": package["version"], "TargetPlatform": "win32-x64"}.items():
+        for key, value in {"Id": package["name"], "Publisher": "FlowIME", "Version": package["version"], "TargetPlatform": "win32-x64"}.items():
             if identity is None or identity.get(key) != value:
                 raise ValueError(f"Invalid manifest {key}")
         icon_path = "extension/" + package["icon"]
@@ -51,7 +51,7 @@ def verify(path, expected, source_root=ROOT, compare_helper=True):
 def main():
     expected = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))
     parser = argparse.ArgumentParser()
-    parser.add_argument("--vsix", type=Path, default=ROOT / "dist" / f"{expected['displayName']}-{expected['version']}-win32-x64.vsix")
+    parser.add_argument("--vsix", type=Path, default=ROOT / "dist" / f"FlowIME-{expected['version']}-win32-x64.vsix")
     args = parser.parse_args()
     digest = verify(args.vsix, expected)
     print(f"Verified {expected['displayName']} {expected['version']} / win32-x64; SHA-256 {digest}")

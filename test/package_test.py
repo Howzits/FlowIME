@@ -13,7 +13,7 @@ spec = importlib.util.spec_from_file_location("verify_package", ROOT / "scripts/
 verifier = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(verifier)
 METADATA = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))
-ARTIFACT = ROOT / "dist" / f"{METADATA['displayName']}-{METADATA['version']}-win32-x64.vsix"
+ARTIFACT = ROOT / "dist" / f"FlowIME-{METADATA['version']}-win32-x64.vsix"
 sys.path.insert(0, str(ROOT / "scripts"))
 from verify_release import verify_release
 

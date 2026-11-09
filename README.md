@@ -14,13 +14,13 @@
 </p>
 
 <p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=flowime.flowime"><img src="https://img.shields.io/visual-studio-marketplace/v/flowime.flowime?style=flat-square&amp;color=6574F7&amp;label=Marketplace" alt="Visual Studio Marketplace version"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=FlowIME.flowime"><img src="https://img.shields.io/visual-studio-marketplace/v/FlowIME.flowime?style=flat-square&amp;color=6574F7&amp;label=Marketplace" alt="Visual Studio Marketplace version"></a>
   <img src="https://img.shields.io/badge/platform-Windows_x64-1678D4?style=flat-square" alt="Windows x64">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-20B886?style=flat-square" alt="MIT License"></a>
 </p>
 
 <p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=flowime.flowime"><strong>从 VS Code 市场安装</strong></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=FlowIME.flowime"><strong>从 VS Code 市场安装</strong></a>
   &nbsp;·&nbsp;
   <a href="docs/USAGE.md">配置指南</a>
   &nbsp;·&nbsp;
@@ -44,10 +44,10 @@
 
 需要 **Windows x64、VS Code 1.96+ 或 Insiders**，以及已配置的中文输入法。
 
-在扩展市场搜索 **FlowIME**，确认发布者为 **flowime** 后安装，或执行：
+在扩展市场搜索 **FlowIME: Auto Input Switcher**，确认发布者为 **FlowIME** 后安装，或执行：
 
 ```powershell
-code --install-extension flowime.flowime
+code --install-extension FlowIME.flowime
 ```
 
 安装后默认启用。切换到聊天框或终端试打，点击状态栏可暂停。

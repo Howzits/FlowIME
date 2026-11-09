@@ -14,13 +14,13 @@
 </p>
 
 <p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=flowime.flowime"><img src="https://img.shields.io/visual-studio-marketplace/v/flowime.flowime?style=flat-square&amp;color=6574F7&amp;label=Marketplace" alt="Visual Studio Marketplace version"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=FlowIME.flowime"><img src="https://img.shields.io/visual-studio-marketplace/v/FlowIME.flowime?style=flat-square&amp;color=6574F7&amp;label=Marketplace" alt="Visual Studio Marketplace version"></a>
   <img src="https://img.shields.io/badge/platform-Windows_x64-1678D4?style=flat-square" alt="Windows x64">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-20B886?style=flat-square" alt="MIT License"></a>
 </p>
 
 <p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=flowime.flowime"><strong>Install from the Marketplace</strong></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=FlowIME.flowime"><strong>Install from the Marketplace</strong></a>
   &nbsp;·&nbsp;
   <a href="docs/USAGE.md">Usage guide (中文)</a>
   &nbsp;·&nbsp;
@@ -44,10 +44,10 @@
 
 Requires **Windows x64, VS Code 1.96+ or Insiders**, and a configured Chinese input method.
 
-Search the Marketplace for **FlowIME**, published by **flowime**, or run:
+Search the Marketplace for **FlowIME: Auto Input Switcher**, published by **FlowIME**, or run:
 
 ```powershell
-code --install-extension flowime.flowime
+code --install-extension FlowIME.flowime
 ```
 
 Enabled by default. Try typing in a chat input and the terminal; click the status bar item to pause.

@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.5.3
+
+- Publisher ID 按市场页面统一为 FlowIME，完整扩展 ID 为 FlowIME.flowime。
+- 展示名称保留 FlowIME: Auto Input Switcher，开发者仍为 haochen12。
+- 同步更新安装链接、发布校验和迁移说明。
+
+## 0.5.2
+
+- 市场展示名称调整为 FlowIME: Auto Input Switcher，避免与原条目重名。
+- 扩展 ID 仍为 flowime.flowime，功能及配置保持不变。
+- 安装包继续使用 FlowIME 文件名前缀，不随展示名称变化。
+
 ## 0.5.1
 
 - 项目仓库迁移至 Howzits/FlowIME。

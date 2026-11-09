@@ -13,7 +13,7 @@ def verify_release(source, artifacts, tag):
     metadata = json.loads((source / "package.json").read_text(encoding="utf-8"))
     if tag != "v" + metadata["version"]:
         raise ValueError("Release tag and source version differ")
-    name = f"{metadata['displayName']}-{metadata['version']}-win32-x64.vsix"
+    name = f"FlowIME-{metadata['version']}-win32-x64.vsix"
     checksum = (artifacts / "SHA256SUMS.txt").read_text(encoding="ascii").strip()
     match = re.fullmatch(r"([0-9a-f]{64})  " + re.escape(name), checksum)
     if not match:

@@ -16,7 +16,7 @@ dist/FlowIME-<version>-win32-x64.vsix
 dist/SHA256SUMS.txt
 ```
 
-Publisher 固定为 `flowime`，平台固定为 `win32-x64`。版本取自 `package.json`，开发工具版本锁定在 `package-lock.json`。运行时无 npm 依赖。旧的自制 `package.py` 打包入口已移除。
+Publisher 固定为 `FlowIME`，平台固定为 `win32-x64`。版本取自 `package.json`，开发工具版本锁定在 `package-lock.json`。运行时无 npm 依赖。旧的自制 `package.py` 打包入口已移除。
 
 **Marketplace 和 GitHub Release 必须复用同一个 VSIX 文件，不要为两个渠道分别构建。** SHA-256 相同才能确认用户获得的是同一份文件。新安装包通过 Releases 分发；仓库中已有的历史二进制保留，不再加入新版本的构建产物。
 

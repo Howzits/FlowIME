@@ -1,11 +1,22 @@
 # FlowIME Logo
 
-FlowIME by haochen12 uses a flowing F ribbon, a chat-bubble tail and a terminal chevron. Cyan, jade and periwinkle on midnight navy keep the mark readable in light and dark extension lists.
+开发者：haochen12。
 
-- `flowime-logo-source.png`: original generated artwork.
-- `flowime-logo.png`: 512 px README asset.
-- `icon.png`: 256 px Marketplace and VS Code icon, below the 1024 KB limit.
+## 设计含义
 
-Generated with OpenAI ImageGen, then resized without changing the composition. The original ContextIME artwork remains in Git history and `contextime-logo.png` for reference.
+- **心流与连贯（Flow）**：连贯、圆润的 F 形流线与向前箭头，表达思考、打字与输入法切换的连续体验。
+- **智能无缝切换（IME Switch）**：箭头融入 F 的中横，以流动表达上下文切换。实际功能仍以聊天中文、终端英文为主，代码编辑区保持当前输入法；图标不代表会自动切换中文注释与英文代码。
+- **现代开发美学（Developer Vibe）**：深色圆角底座、青蓝渐变和克制的流光，配以下方 FlowIME 字标，兼顾暗色主题与小尺寸识别。
 
-Generation prompt: Design one polished app icon for FlowIME, a VS Code extension that smoothly switches Chinese chat input and English terminal input based on focus. A minimal flowing geometric F ribbon with chat-bubble tail and terminal chevron, cyan and jade with periwinkle on midnight navy. Bold silhouette readable at 32 px, crisp edges, generous inset. No words, mockup or watermark.
+## 文件
+
+- `flowime-logo-v2-source.png`：ImageGen 生成的原始图，保留在仓库但不打包。
+- `flowime-logo-v2.png`：512 × 512 README 展示图。
+- `icon.png`：256 × 256 VS Code / Marketplace 图标，低于 1024 KB 限制。
+- 上一版原图和展示图保留作参考。
+
+生成后仅作等比例缩放，没有改变构图。README 以 176 px 展示，字标已包含品牌名称，不再重复添加大标题。
+
+## 生成要求
+
+基于旧 FlowIME 图案优化，保留圆润深色底座；将原有独立终端符号融入连续 F 形流线，形成向前的动态箭头。青蓝、电光蓝渐变和克制的流光，粗线条、居中、有留白；下方准确写 FlowIME。正视、简洁、无模型场景、无额外口号。图形在小尺寸下仍能凭轮廓辨识。

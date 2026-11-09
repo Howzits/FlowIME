@@ -1,16 +1,14 @@
 <p align="center">
-  <img src="assets/flowime-logo.png" alt="FlowIME Logo" width="112" height="112">
-</p>
-
-<h1 align="center">FlowIME</h1>
-
-<p align="center">
-  <strong>Chinese for chat. English for the terminal.</strong><br>
-  Fewer input-method switches. Fewer interruptions.
+  <img src="assets/flowime-logo-v2.png" alt="FlowIME Logo" width="176" height="176">
 </p>
 
 <p align="center">
-  Focus-aware input switching for AI-assisted coding in VS Code on Windows.
+  <strong>Switch less. Stay in flow.</strong><br>
+  Chinese for chat. English for the terminal. Keep your thoughts moving.
+</p>
+
+<p align="center">
+  FlowIME · Automatic Chinese/English input switching for VS Code on Windows.
 </p>
 
 <p align="center">
@@ -33,12 +31,20 @@
 
 ---
 
-## Features
+## From conversation to command
 
-- **Switch with focus:** English in the terminal; Chinese in chat and ordinary inputs by default.
-- **Use your configured IME:** no fixed keyboard IDs or extra English layout required.
-- **Remember input preferences:** choose Chinese, English, or no intervention for individual inputs within the current session.
-- **Stay in control:** pause from the status bar and inspect inputs with diagnostics. Code editors, password fields, and read-only controls are left unchanged.
+Discuss a solution with AI in Chinese, run a command in the terminal, then return to the conversation. FlowIME switches input modes with focus, reducing the interruptions of switching them yourself.
+
+| What you are doing | FlowIME's default behavior |
+| --- | --- |
+| Describing a task in chat | Request Chinese mode |
+| Entering a terminal command | Request English mode |
+| Working in the code editor | Keep the current input mode |
+
+- **Keep your familiar IME:** use the input method already configured in Windows, with no extra English keyboard required.
+- **Make it yours:** observable manual language changes are remembered for the current session. You can also choose Chinese, English, or no intervention for an input.
+- **Reduce back-and-forth switching:** focus debounce waits for a stable input before switching, filtering out brief stops along the way.
+- **Take control anytime:** click the status bar to pause; use diagnostics to investigate unrecognized inputs. Password fields and read-only controls are left unchanged.
 
 ## Install
 
@@ -50,9 +56,7 @@ Search the Marketplace for **FlowIME: Auto Input Switcher**, published by **Flow
 code --install-extension FlowIME.flowime
 ```
 
-Enabled by default. Try typing in a chat input and the terminal; click the status bar item to pause.
-
-Formerly ContextIME. The publisher has changed: uninstall the old extension before installing FlowIME to avoid running both. Existing `autoInput.*` settings remain compatible.
+Enabled as soon as you install it. Type a Chinese message in chat, then enter a terminal command to try focus-based switching.
 
 The interface follows the VS Code display language: Chinese for Chinese locales, English otherwise. No extra configuration is needed.
 
@@ -69,8 +73,8 @@ Preferences do not persist across helper sessions. Switching depends on control 
 
 ## Documentation and support
 
-[Usage and troubleshooting (中文)](docs/USAGE.md) · [Compatibility (中文)](docs/COMPATIBILITY.md) · [Maintenance and releases (中文)](docs/MAINTAINING.md) · [Changelog](CHANGELOG.md) · [Report an issue](https://github.com/Howzits/FlowIME/issues/new/choose)
+[Usage, migration and troubleshooting (中文)](docs/USAGE.md) · [Compatibility (中文)](docs/COMPATIBILITY.md) · [Maintenance and releases (中文)](docs/MAINTAINING.md) · [Changelog](CHANGELOG.md) · [Report an issue](https://github.com/Howzits/FlowIME/issues/new/choose)
 
-No code or chat content is read. No keystroke listening, network requests, or telemetry. Currently limited to desktop VS Code on Windows; no system-wide switching.
+**Focused on focus.** No code or chat content is read. No keystroke listening, network requests, or telemetry. Currently limited to desktop VS Code on Windows; no system-wide switching.
 
 Developed by **haochen12** · [MIT License](LICENSE) · Independent project, not affiliated with AI assistant vendors.

@@ -1,16 +1,14 @@
 <p align="center">
-  <img src="assets/flowime-logo.png" alt="FlowIME Logo" width="112" height="112">
-</p>
-
-<h1 align="center">FlowIME</h1>
-
-<p align="center">
-  <strong>聊天中文，终端英文。</strong><br>
-  少切一次输入法，少打断一次思路。
+  <img src="assets/flowime-logo-v2.png" alt="FlowIME Logo" width="176" height="176">
 </p>
 
 <p align="center">
-  为 Windows 上的 VS Code 用户设计，让输入法跟随 AI 编程工作流。
+  <strong>少切一次输入法，多一点心流。</strong><br>
+  聊天中文，终端英文，让输入跟上思路。
+</p>
+
+<p align="center">
+  FlowIME · 为 Windows 上的 VS Code 用户自动切换中英文输入模式。
 </p>
 
 <p align="center">
@@ -33,12 +31,20 @@
 
 ---
 
-## 核心功能
+## 从中文对话，到终端命令
 
-- **随焦点切换**：终端默认英文，聊天和普通输入框默认中文。
-- **沿用默认输入法**：不写死键盘布局，无需额外安装英语键盘。
-- **记住输入框偏好**：当前会话内可指定中文、英文或保持不变。
-- **随时掌控**：状态栏一键暂停，内置输入框诊断；代码区、密码框和只读控件不干预。
+用中文和 AI 讨论方案，转到终端运行命令，再回到对话继续思考。FlowIME 跟随输入焦点切换中英文，减少来回操作输入法的打断。
+
+| 你正在做什么 | FlowIME 默认行为 |
+| --- | --- |
+| 在聊天框描述需求 | 请求中文模式 |
+| 在集成终端输入命令 | 请求英文模式 |
+| 在代码编辑区继续开发 | 保持当前输入法 |
+
+- **用熟悉的输入法**：沿用 Windows 已配置的默认输入法，无需额外安装英语键盘。
+- **尊重你的选择**：可识别的手动中英文切换会记入当前会话；也可为输入框指定中文、英文或保持不变。
+- **少一点来回跳动**：焦点防抖过滤短暂经过的输入框，稳定停留后再切换。
+- **随时接管**：点击状态栏即可暂停；内置诊断，方便排查未识别的输入框。密码框和只读控件保持不变。
 
 ## 安装与使用
 
@@ -50,9 +56,7 @@
 code --install-extension FlowIME.flowime
 ```
 
-安装后默认启用。切换到聊天框或终端试打，点击状态栏可暂停。
-
-原名 ContextIME。更换发布者后，旧版用户需卸载旧扩展再安装 FlowIME，避免两个版本同时运行；`autoInput.*` 设置保持兼容。
+安装即启用。先在聊天框输入一句中文，再到终端输入一条命令，体验随焦点切换。
 
 界面跟随 VS Code 显示语言：中文显示中文，其他语言默认英文，无需额外配置。
 
@@ -69,8 +73,8 @@ code --install-extension FlowIME.flowime
 
 ## 文档与反馈
 
-[使用与故障排查](docs/USAGE.md) · [兼容性记录](docs/COMPATIBILITY.md) · [维护与发布](docs/MAINTAINING.md) · [更新日志](CHANGELOG.md) · [反馈问题](https://github.com/Howzits/FlowIME/issues/new/choose)
+[使用、旧版迁移与故障排查](docs/USAGE.md) · [兼容性记录](docs/COMPATIBILITY.md) · [维护与发布](docs/MAINTAINING.md) · [更新日志](CHANGELOG.md) · [反馈问题](https://github.com/Howzits/FlowIME/issues/new/choose)
 
-不读取代码或聊天正文，不监听按键，不联网，不上传遥测。当前仅支持 Windows 桌面版 VS Code，不提供系统全局切换。
+**只关注输入焦点。** 不读取代码或聊天正文，不监听按键，不联网，不上传遥测。当前仅支持 Windows 桌面版 VS Code，不提供系统全局切换。
 
 开发者：**haochen12** · [MIT License](LICENSE) · 独立项目，与 AI 助手厂商无隶属关系。

@@ -15,8 +15,8 @@ def verify(path, expected, source_root=ROOT, compare_helper=True):
         if archive.testzip():
             raise ValueError("Corrupt ZIP member")
         package = json.loads(archive.read("extension/package.json"))
-        for key in ("name", "publisher", "version"):
-            if package[key] != expected[key]:
+        for key in ("name", "publisher", "version", "displayName", "author"):
+            if package.get(key) != expected.get(key):
                 raise ValueError(f"Package {key} differs from source")
         if package["publisher"] != "ContextIME":
             raise ValueError("Unexpected publisher; do not release a local-tools package")
@@ -51,10 +51,10 @@ def verify(path, expected, source_root=ROOT, compare_helper=True):
 def main():
     expected = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))
     parser = argparse.ArgumentParser()
-    parser.add_argument("--vsix", type=Path, default=ROOT / "dist" / f"ContextIME-{expected['version']}-win32-x64.vsix")
+    parser.add_argument("--vsix", type=Path, default=ROOT / "dist" / f"{expected['displayName']}-{expected['version']}-win32-x64.vsix")
     args = parser.parse_args()
     digest = verify(args.vsix, expected)
-    print(f"Verified ContextIME {expected['version']} / win32-x64; SHA-256 {digest}")
+    print(f"Verified {expected['displayName']} {expected['version']} / win32-x64; SHA-256 {digest}")
 
 
 if __name__ == "__main__":

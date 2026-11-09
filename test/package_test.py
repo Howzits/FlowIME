@@ -13,7 +13,7 @@ spec = importlib.util.spec_from_file_location("verify_package", ROOT / "scripts/
 verifier = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(verifier)
 METADATA = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))
-ARTIFACT = ROOT / "dist" / f"ContextIME-{METADATA['version']}-win32-x64.vsix"
+ARTIFACT = ROOT / "dist" / f"{METADATA['displayName']}-{METADATA['version']}-win32-x64.vsix"
 sys.path.insert(0, str(ROOT / "scripts"))
 from verify_release import verify_release
 
@@ -38,6 +38,20 @@ class ReleaseChecks(unittest.TestCase):
             metadata["publisher"] = "local-tools"
             return json.dumps(metadata).encode()
         self.mutate({"extension/package.json": change})
+
+    def test_wrong_display_name_is_rejected(self):
+        def change(raw):
+            metadata = json.loads(raw)
+            metadata['displayName'] = 'ContextIME'
+            return json.dumps(metadata).encode()
+        self.mutate({'extension/package.json': change})
+
+    def test_wrong_author_is_rejected(self):
+        def change(raw):
+            metadata = json.loads(raw)
+            metadata['author'] = 'wrong-author'
+            return json.dumps(metadata).encode()
+        self.mutate({'extension/package.json': change})
 
     def test_wrong_platform_is_rejected(self):
         self.mutate({"extension.vsixmanifest": lambda value: value.replace(b'win32-x64', b'darwin-arm64')})

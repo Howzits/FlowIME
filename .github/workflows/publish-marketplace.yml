@@ -65,12 +65,14 @@ jobs:
           GH_REPO: ${{ github.repository }}
           DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
         run: |
-          $version = (Get-Content source/package.json -Raw | ConvertFrom-Json).version
+          $metadata = Get-Content source/package.json -Raw | ConvertFrom-Json
+          $version = $metadata.version
+          $brand = $metadata.displayName
           if ($env:RELEASE_TAG -cne "v$version") { throw 'Release tag and source version differ.' }
           $release = gh release view $env:RELEASE_TAG --json isDraft,isPrerelease | ConvertFrom-Json
           if ($LASTEXITCODE -ne 0) { throw 'Release not found.' }
           if ($env:DRY_RUN -ne 'true' -and ($release.isDraft -or $release.isPrerelease)) { throw 'Only public stable Releases may publish to Marketplace.' }
-          gh release download $env:RELEASE_TAG --pattern "ContextIME-$version-win32-x64.vsix" --pattern SHA256SUMS.txt --dir release-assets
+          gh release download $env:RELEASE_TAG --pattern "${brand}-$version-win32-x64.vsix" --pattern SHA256SUMS.txt --dir release-assets
           if ($LASTEXITCODE -ne 0) { throw 'Release asset download failed.' }
       - name: Verify identity, source files, icon and checksum
         shell: pwsh
@@ -82,8 +84,10 @@ jobs:
         working-directory: source
         shell: pwsh
         run: |
-          $version = (Get-Content package.json -Raw | ConvertFrom-Json).version
-          node ../automation/node_modules/@vscode/vsce/vsce publish --oidc --packagePath "../release-assets/ContextIME-$version-win32-x64.vsix" --skip-duplicate
+          $metadata = Get-Content package.json -Raw | ConvertFrom-Json
+          $version = $metadata.version
+          $brand = $metadata.displayName
+          node ../automation/node_modules/@vscode/vsce/vsce publish --oidc --packagePath "../release-assets/${brand}-$version-win32-x64.vsix" --skip-duplicate
           if ($LASTEXITCODE -ne 0) { throw 'Marketplace publish failed. Check the Trusted Publishing policy.' }
       - name: Report verification-only run
         if: github.event_name == 'workflow_dispatch' && inputs.dry_run

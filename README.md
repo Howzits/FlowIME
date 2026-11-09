@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="assets/contextime-logo.png" alt="ContextIME Logo" width="112" height="112">
+  <img src="assets/flowime-logo.png" alt="FlowIME Logo" width="112" height="112">
 </p>
 
-<h1 align="center">ContextIME</h1>
+<h1 align="center">FlowIME</h1>
 
 <p align="center">
   <strong>聊天中文，终端英文。</strong><br>
@@ -44,13 +44,15 @@
 
 需要 **Windows x64、VS Code 1.96+ 或 Insiders**，以及已配置的中文输入法。
 
-在扩展市场搜索 **ContextIME**，确认发布者为 **ContextIME** 后安装，或执行：
+在扩展市场搜索 **FlowIME**，确认发布者为 **ContextIME** 后安装，或执行：
 
 ```powershell
 code --install-extension ContextIME.codex-terminal-auto-input
 ```
 
 安装后默认启用。切换到聊天框或终端试打，点击状态栏可暂停。
+
+原名 ContextIME，现有用户直接更新即可，设置与扩展 ID 保持不变。
 
 界面跟随 VS Code 显示语言：中文显示中文，其他语言默认英文，无需额外配置。
 
@@ -71,4 +73,4 @@ code --install-extension ContextIME.codex-terminal-auto-input
 
 不读取代码或聊天正文，不监听按键，不联网，不上传遥测。当前仅支持 Windows 桌面版 VS Code，不提供系统全局切换。
 
-[MIT License](LICENSE) · 独立项目，与 AI 助手厂商无隶属关系。
+开发者：**haochen12** · [MIT License](LICENSE) · 独立项目，与 AI 助手厂商无隶属关系。

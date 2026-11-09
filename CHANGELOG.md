@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.0
+
+- ContextIME 更名为 FlowIME，开发者信息更新为 haochen12。
+- 全新 FlowIME Logo，同步更新扩展图标、README、命令、设置与状态栏的中英文名称。
+- 保留 Marketplace 扩展 ID 与 autoInput 设置，现有用户可直接升级。
+- 发布安装包改为 FlowIME-<version>-win32-x64.vsix，沿用已验证的自动发布流程。
+
 ## 0.4.6
 
 - 默认焦点检查间隔从 250 ms 缩短至 100 ms，可配置范围调整为 50–1000 ms。

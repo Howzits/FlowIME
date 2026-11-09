@@ -10,3 +10,5 @@ dist/**
 .github/**
 scripts/**
 package-lock.json
+assets/flowime-logo-source.png
+assets/contextime-logo.png

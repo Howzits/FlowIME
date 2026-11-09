@@ -4,11 +4,11 @@ const { spawn } = require('child_process');
 let stopActive = () => {};
 
 function activate(context) {
-  const output = vscode.window.createOutputChannel('ContextIME');
+  const output = vscode.window.createOutputChannel('FlowIME');
   const status = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 10);
-  status.name = 'ContextIME';
+  status.name = 'FlowIME';
   status.command = 'autoInput.toggle';
-  status.tooltip = vscode.l10n.t("ContextIME: English for terminals, Chinese for chat. Click to pause/enable. The target does not confirm the actual input state.");
+  status.tooltip = vscode.l10n.t("FlowIME: English for terminals, Chinese for chat. Click to pause/enable. The target does not confirm the actual input state.");
   let child;
   let retry;
   let retries = 0;
@@ -32,11 +32,11 @@ function activate(context) {
     if (resetRetries) retries = 0;
     status.show();
     if (process.platform !== 'win32') {
-      status.text = vscode.l10n.t("$(info) ContextIME: Windows only");
+      status.text = vscode.l10n.t("$(info) FlowIME: Windows only");
       return;
     }
     if (!config().get('enabled', true)) {
-      status.text = vscode.l10n.t("$(debug-pause) ContextIME: Paused");
+      status.text = vscode.l10n.t("$(debug-pause) FlowIME: Paused");
       return;
     }
     const args = [
@@ -48,7 +48,7 @@ function activate(context) {
       windowsHide: true, stdio: ['pipe', 'pipe', 'pipe']
     });
     child = worker;
-    status.text = vscode.l10n.t("$(keyboard) ContextIME: Auto");
+    status.text = vscode.l10n.t("$(keyboard) FlowIME: Auto");
     output.appendLine(`${new Date().toISOString()} ${vscode.l10n.t('Starting focus helper: {0}', args.join(' '))}`);
     let buffer = '';
     worker.stdout.on('data', data => {
@@ -61,15 +61,15 @@ function activate(context) {
         const target = /target=(en|zh) layoutRequest=(True|False)/.exec(line);
         if (target) {
           status.text = target[2] === 'True'
-            ? vscode.l10n.t('$(keyboard) ContextIME: Target {0}', target[1] === 'en' ? 'EN' : vscode.l10n.t('ZH'))
-            : vscode.l10n.t("$(warning) ContextIME: Request failed");
-        } else if (line.includes('focus=preserve')) status.text = vscode.l10n.t("$(keyboard) ContextIME: Preserved");
-        else if (line.includes('No configured input method')) status.text = vscode.l10n.t("$(warning) ContextIME: Missing input method");
+            ? vscode.l10n.t('$(keyboard) FlowIME: Target {0}', target[1] === 'en' ? 'EN' : vscode.l10n.t('ZH'))
+            : vscode.l10n.t("$(warning) FlowIME: Request failed");
+        } else if (line.includes('focus=preserve')) status.text = vscode.l10n.t("$(keyboard) FlowIME: Preserved");
+        else if (line.includes('No configured input method')) status.text = vscode.l10n.t("$(warning) FlowIME: Missing input method");
         else if (line.startsWith('diagnostic ')) output.show(true);
         else if (/^preference=(en|zh|keep) source=command/.test(line)) {
-          vscode.window.setStatusBarMessage(vscode.l10n.t("ContextIME: Input preference saved for this session."), 4000);
+          vscode.window.setStatusBarMessage(vscode.l10n.t("FlowIME: Input preference saved for this session."), 4000);
         } else if (line.startsWith('preferences=cleared')) {
-          vscode.window.setStatusBarMessage(vscode.l10n.t("ContextIME: Input preferences cleared for this session."), 4000);
+          vscode.window.setStatusBarMessage(vscode.l10n.t("FlowIME: Input preferences cleared for this session."), 4000);
         } else if (line.startsWith('preference=skipped') || line.startsWith('command=')) output.show(true);
       }
     });
@@ -77,12 +77,12 @@ function activate(context) {
     worker.stdin.on('error', () => {});
     worker.on('error', error => {
       output.appendLine(vscode.l10n.t('Helper startup failed: {0}', error.message));
-      if (child === worker) status.text = vscode.l10n.t("$(warning) ContextIME: Startup failed");
+      if (child === worker) status.text = vscode.l10n.t("$(warning) FlowIME: Startup failed");
     });
     worker.on('exit', code => {
       if (child !== worker) return;
       child = undefined;
-      status.text = vscode.l10n.t("$(warning) ContextIME: Helper stopped");
+      status.text = vscode.l10n.t("$(warning) FlowIME: Helper stopped");
       output.appendLine(vscode.l10n.t('Helper exited ({0})', code));
       if (!disposed && config().get('enabled', true) && retries < 2) {
         retries += 1;
@@ -94,12 +94,12 @@ function activate(context) {
   const shutdown = () => { disposed = true; stop(); };
   function send(command) {
     if (!child || !child.stdin.writable) {
-      output.appendLine(vscode.l10n.t("The helper is not running. Enable ContextIME and restart the helper."));
+      output.appendLine(vscode.l10n.t("The helper is not running. Enable FlowIME and restart the helper."));
       output.show(true);
       return;
     }
     child.stdin.write(command + '\n');
-    if (command !== 'clear') vscode.window.setStatusBarMessage(vscode.l10n.t("ContextIME: Click the target input within 3 seconds."), 3000);
+    if (command !== 'clear') vscode.window.setStatusBarMessage(vscode.l10n.t("FlowIME: Click the target input within 3 seconds."), 3000);
   }
   stopActive = shutdown;
   context.subscriptions.push(output, status,

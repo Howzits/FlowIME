@@ -19,7 +19,7 @@ if ($LASTEXITCODE -ne 0) { throw 'Helper self-test failed' }
 if ($LASTEXITCODE -ne 0) { throw 'Extension tests failed' }
 $destination = Join-Path $PSScriptRoot 'dist'
 New-Item -ItemType Directory -Path $destination -Force | Out-Null
-$artifact = Join-Path $destination "ContextIME-$($metadata.version)-win32-x64.vsix"
+$artifact = Join-Path $destination "FlowIME-$($metadata.version)-win32-x64.vsix"
 & $NodePath $packager package --no-dependencies --target win32-x64 --out $artifact | Out-Host
 if ($LASTEXITCODE -ne 0) { throw 'Official VSIX packaging failed' }
 python (Join-Path $PSScriptRoot 'scripts\verify_package.py') --vsix $artifact

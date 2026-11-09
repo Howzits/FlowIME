@@ -1,8 +1,8 @@
 {
   "name": "codex-terminal-auto-input",
-  "displayName": "ContextIME",
+  "displayName": "FlowIME",
   "description": "%description%",
-  "version": "0.4.6",
+  "version": "0.5.0",
   "publisher": "ContextIME",
   "license": "MIT",
   "icon": "assets/icon.png",
@@ -86,7 +86,7 @@
       }
     ],
     "configuration": {
-      "title": "ContextIME",
+      "title": "FlowIME",
       "properties": {
         "autoInput.enabled": {
           "type": "boolean",
@@ -121,5 +121,6 @@
       }
     }
   },
-  "l10n": "./l10n"
+  "l10n": "./l10n",
+  "author": "haochen12"
 }

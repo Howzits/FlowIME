@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="assets/contextime-logo.png" alt="ContextIME Logo" width="112" height="112">
+  <img src="assets/flowime-logo.png" alt="FlowIME Logo" width="112" height="112">
 </p>
 
-<h1 align="center">ContextIME</h1>
+<h1 align="center">FlowIME</h1>
 
 <p align="center">
   <strong>Chinese for chat. English for the terminal.</strong><br>
@@ -44,13 +44,15 @@
 
 Requires **Windows x64, VS Code 1.96+ or Insiders**, and a configured Chinese input method.
 
-Search the Marketplace for **ContextIME**, published by **ContextIME**, or run:
+Search the Marketplace for **FlowIME**, published by **ContextIME**, or run:
 
 ```powershell
 code --install-extension ContextIME.codex-terminal-auto-input
 ```
 
 Enabled by default. Try typing in a chat input and the terminal; click the status bar item to pause.
+
+Formerly ContextIME. Existing users can update directly; extension ID and settings are unchanged.
 
 The interface follows the VS Code display language: Chinese for Chinese locales, English otherwise. No extra configuration is needed.
 
@@ -71,4 +73,4 @@ Preferences do not persist across helper sessions. Switching depends on control 
 
 No code or chat content is read. No keystroke listening, network requests, or telemetry. Currently limited to desktop VS Code on Windows; no system-wide switching.
 
-[MIT License](LICENSE) · Independent project, not affiliated with AI assistant vendors.
+Developed by **haochen12** · [MIT License](LICENSE) · Independent project, not affiliated with AI assistant vendors.

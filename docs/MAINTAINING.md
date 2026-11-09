@@ -12,7 +12,7 @@ npm run build
 构建依次执行原生编译及自检、Node 扩展测试、官方 vsce 打包、安装包一致性检查，输出：
 
 ```text
-dist/ContextIME-<version>-win32-x64.vsix
+dist/FlowIME-<version>-win32-x64.vsix
 dist/SHA256SUMS.txt
 ```
 
@@ -22,7 +22,7 @@ Publisher 固定为 `ContextIME`，平台固定为 `win32-x64`。版本取自 `p
 
 ## 自动检查
 
-推送 main、提交 PR 或手动运行 Actions 会在 Windows runner 上执行同一入口。成功后可下载 `ContextIME-win32-x64` 构建产物。普通提交只有检查和产物，不会公开发布版本。
+推送 main、提交 PR 或手动运行 Actions 会在 Windows runner 上执行同一入口。成功后可下载 `FlowIME-win32-x64` 构建产物。普通提交只有检查和产物，不会公开发布版本。
 
 CI 不替代真实输入法上屏测试。发布前仍需参考 [兼容性记录](COMPATIBILITY.md) 完成实际界面检查。
 

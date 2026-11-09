@@ -1,10 +1,10 @@
-# ContextIME 使用与配置
+# FlowIME 使用与配置
 
 [返回项目首页](../README.md)
 
 ## 安装与旧版迁移
 
-正式市场版的完整扩展 ID 是 `ContextIME.codex-terminal-auto-input`，显示名称和发布者均为 **ContextIME**。
+正式市场版的完整扩展 ID 是 `ContextIME.codex-terminal-auto-input`，显示名称为 **FlowIME**，发布者 ID 沿用 **ContextIME**。
 
 ```powershell
 code --install-extension ContextIME.codex-terminal-auto-input
@@ -35,16 +35,16 @@ GitHub Releases 中早期的 `ContextIME-0.4.1.vsix` 使用 `local-tools` 发布
 
 ## 状态与控制
 
-点击状态栏的 **ContextIME** 暂停或启用。`目标 EN` / `目标 中` 表示布局请求已发出，**不代表已确认实际输入状态**；`保持` 表示当前控件不干预。出现请求失败或缺少输入法时，可查看日志。
+点击状态栏的 **FlowIME** 暂停或启用。`目标 EN` / `目标 中` 表示布局请求已发出，**不代表已确认实际输入状态**；`保持` 表示当前控件不干预。出现请求失败或缺少输入法时，可查看日志。
 
 命令面板提供：
 
-- `ContextIME: 暂停 / 启用自动输入法`
-- `ContextIME: 查看运行日志`
-- `ContextIME: 重启输入法助手`
-- `ContextIME: 诊断输入框（3 秒后采集）`
-- `ContextIME: 此输入框记住英文 / 中文 / 保持不变（3 秒后采集）`
-- `ContextIME: 清除本次会话的输入框偏好`
+- `FlowIME: 暂停 / 启用自动输入法`
+- `FlowIME: 查看运行日志`
+- `FlowIME: 重启输入法助手`
+- `FlowIME: 诊断输入框（3 秒后采集）`
+- `FlowIME: 此输入框记住英文 / 中文 / 保持不变（3 秒后采集）`
+- `FlowIME: 清除本次会话的输入框偏好`
 
 ### 切换防抖
 
@@ -54,7 +54,7 @@ GitHub Releases 中早期的 `ContextIME-0.4.1.vsix` 使用 `local-tools` 发布
 
 ### 输入框偏好记忆
 
-在聊天或普通输入框手动切换中英文后，如果 Windows 接口能观察到状态变化，ContextIME 会记住该控件的偏好；离开再返回时优先恢复。不会把一次布局请求直接当作用户偏好，也不会在同一控件中不断强制切换。
+在聊天或普通输入框手动切换中英文后，如果 Windows 接口能观察到状态变化，FlowIME 会记住该控件的偏好；离开再返回时优先恢复。不会把一次布局请求直接当作用户偏好，也不会在同一控件中不断强制切换。
 
 自动切换后会尽早读取参考状态。只有观察到目标模式，才建立基线；随后不同模式需连续观察至少 250 ms，并经过 700 ms 的自动切换稳定期，才记为偏好。同一输入框不会因此被再次强制切换。未知读数会中断本次变化确认；离开控件、清除偏好或焦点查询异常会重置观察状态。
 
@@ -64,7 +64,7 @@ GitHub Releases 中早期的 `ContextIME-0.4.1.vsix` 使用 `local-tools` 发布
 
 ### 输入框诊断
 
-运行诊断命令后，在 **3 秒内点击目标输入框**，结果会显示在 ContextIME 输出面板：
+运行诊断命令后，在 **3 秒内点击目标输入框**，结果会显示在 FlowIME 输出面板：
 
 ```text
 diagnostic reason=editable-input default=zh preference=en observed=en remember=True interval=100 debounce=80
@@ -91,7 +91,7 @@ diagnostic reason=editable-input default=zh preference=en observed=en remember=T
 
 没有暴露聊天语义标识的第三方输入框也可能因此不再切中文，改回 `chinese` 可恢复通用输入框规则。
 
-设置项和内部命令 ID 保留原有 `autoInput` 前缀，方便已有本地版本升级；界面名称统一为 ContextIME。
+设置项和内部命令 ID 保留原有 `autoInput` 前缀，方便已有本地版本升级；界面名称统一为 FlowIME。
 
 ## 兼容范围与限制
 
@@ -106,7 +106,7 @@ diagnostic reason=editable-input default=zh preference=en observed=en remember=T
 ## 没有自动切换？
 
 1. 确认状态栏未暂停，聚焦目标输入框后稍等再试打。
-2. 运行 `ContextIME: 诊断输入框（3 秒后采集）`，返回目标控件后查看规则原因；日志可进一步区分缺少输入法与请求失败。
+2. 运行 `FlowIME: 诊断输入框（3 秒后采集）`，返回目标控件后查看规则原因；日志可进一步区分缺少输入法与请求失败。
 3. 没有识别到控件时，可手动尝试把 `editor.accessibilitySupport` 设为 `on` 后重载窗口。这会启用 VS Code 辅助功能行为，扩展不会替你修改。
 4. 已发出请求但没有中文上屏，先手动切换确认输入法本身正常；可能需要进一步适配该输入法。
 5. 助手停止时运行重启命令。异常退出最多自动重试两次，暂停或禁用会取消重试。
@@ -117,7 +117,7 @@ diagnostic reason=editable-input default=zh preference=en observed=en remember=T
 
 ## 隐私与实现
 
-ContextIME 通过 Windows UI Automation 查询焦点控件的类型、可写状态及结构标识，再发送 Windows 输入法请求。不读取输入值、代码正文或聊天内容，不监听按键，不联网，不上传遥测。日志仅留在 VS Code 输出面板，记录目标语言、请求结果和错误类型。
+FlowIME 通过 Windows UI Automation 查询焦点控件的类型、可写状态及结构标识，再发送 Windows 输入法请求。不读取输入值、代码正文或聊天内容，不监听按键，不联网，不上传遥测。日志仅留在 VS Code 输出面板，记录目标语言、请求结果和错误类型。
 
 扩展会读取前台进程名以判断是否为 VS Code，仅对支持的 VS Code 进程应用规则。安装包中的 `InputHelper.exe` 由扩展启动，暂停或禁用时停止；退出或崩溃时也会通过进程生命周期清理。
 

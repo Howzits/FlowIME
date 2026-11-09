@@ -2,7 +2,7 @@
   "name": "flowime",
   "displayName": "FlowIME: Auto Input Switcher",
   "description": "%description%",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "publisher": "FlowIME",
   "license": "MIT",
   "icon": "assets/icon.png",

@@ -43,17 +43,22 @@ internal static class Program {
         editable &= current.IsEnabled && !password;
         string metadata = "";
         bool terminalName = false;
+        bool findLabel = false;
         for (int depth = 0; element != null && depth < 20; depth++) {
             current = element.Current;
             // Never use the top-level window title to guess the control's purpose.
             if (current.ControlType == ControlType.Window) break;
             metadata += " " + current.AutomationId + " " + current.ClassName;
             // Terminal textarea accessible labels are stable and distinct from their value.
-            if (depth == 0) terminalName = Regex.IsMatch(current.Name ?? "", @"^(Terminal input|终端输入|终端输入框)$", RegexOptions.IgnoreCase);
+            if (depth == 0) {
+                terminalName = Regex.IsMatch(current.Name ?? "", @"^(Terminal input|终端输入|终端输入框)$", RegexOptions.IgnoreCase);
+                findLabel = editable && Rules.IsFindLabel(current.Name);
+            }
             element = TreeWalker.ControlViewWalker.GetParent(element);
         }
-        string mode = password ? null : Rules.Decide(process, metadata, editable, terminalName, codeEditor, otherInputsChinese);
-        string reason = password ? "password" : mode == "en" ? "terminal" : mode == "zh" ? "editable-input" : codeEditor ? "code-editor" : !editable ? "readonly-or-noneditable" : "scope-preserve";
+        bool findInput = findLabel || Rules.IsFindInput(metadata);
+        string mode = password ? null : Rules.Decide(process, metadata, editable, terminalName, codeEditor, otherInputsChinese, findInput);
+        string reason = password ? "password" : findInput ? "search-input" : mode == "en" ? "terminal" : mode == "zh" ? "editable-input" : codeEditor ? "code-editor" : !editable ? "readonly-or-noneditable" : "scope-preserve";
         return new Snapshot { Window = window, Focus = Native.Focus(window), Identity = identity, Mode = mode, Reason = reason };
     }
     static bool StillFocused(Snapshot s) {
@@ -104,6 +109,7 @@ internal static class Program {
             " remember=" + remember + " interval=" + pollInterval + " debounce=" + FocusDebouncer.DelayMilliseconds;
     }
     static int SelfTest() {
+        Rules.SelfTest();
         Layouts.SelfTest();
         Preferences.SelfTest();
         FocusDebouncer.SelfTest();

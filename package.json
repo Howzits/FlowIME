@@ -2,17 +2,17 @@
   "name": "flowime",
   "displayName": "FlowIME: Auto Input Switcher",
   "description": "%description%",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "publisher": "FlowIME",
   "license": "MIT",
   "icon": "assets/icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Howzits/FlowIME.git"
+    "url": "https://github.com/haochen12/FlowIME.git"
   },
-  "homepage": "https://github.com/Howzits/FlowIME#readme",
+  "homepage": "https://github.com/haochen12/FlowIME#readme",
   "bugs": {
-    "url": "https://github.com/Howzits/FlowIME/issues"
+    "url": "https://github.com/haochen12/FlowIME/issues"
   },
   "keywords": [
     "ime",

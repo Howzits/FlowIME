@@ -22,7 +22,7 @@ code --install-extension FlowIME.flowime
 
 ### 离线安装
 
-从 [GitHub Releases](https://github.com/Howzits/FlowIME/releases) 下载正式 Publisher 为 `FlowIME` 的 Windows x64 安装包，在扩展视图选择 `… → 从 VSIX 安装…`。
+从 [GitHub Releases](https://github.com/haochen12/FlowIME/releases) 下载正式 Publisher 为 `FlowIME` 的 Windows x64 安装包，在扩展视图选择 `… → 从 VSIX 安装…`。
 
 GitHub Releases 中早期的 `ContextIME-0.4.1.vsix` 使用 `local-tools` 发布者，与市场版是不同扩展 ID。迁移时请选市场版或上面的 `marketplace-win32-x64` 安装包。
 
@@ -48,6 +48,10 @@ GitHub Releases 中早期的 `ContextIME-0.4.1.vsix` 使用 `local-tools` 发布
 - `FlowIME: 此输入框记住英文 / 中文 / 保持不变（3 秒后采集）`
 - `FlowIME: 清除本次会话的输入框偏好`
 
+### 预览与编辑器内查找
+
+可识别的 VS Code 查找控件（包括 Markdown 预览中的查找框）保持当前输入法，由你手动选择中文或英文。此保护优先于聊天/终端容器和 `autoInput.otherInputs`，避免搜索结果更新或查找框重新聚焦时重复切换。退出查找后，聊天框和终端继续按原规则切换。第三方扩展自绘的查找框仍可能需要适配。
+
 ### 切换防抖
 
 自动切换前，焦点需在同一输入框稳定至少 **80 ms**，并在执行时再次确认。快速经过其他输入框时，旧的待执行请求会被丢弃；进入代码区、密码框、只读区域或离开 VS Code 时取消待执行切换。
@@ -72,7 +76,7 @@ GitHub Releases 中早期的 `ContextIME-0.4.1.vsix` 使用 `local-tools` 发布
 diagnostic reason=editable-input default=zh preference=en observed=en remember=True interval=100 debounce=80
 ```
 
-`reason` 表示规则依据：`terminal`（终端）、`editable-input`（输入框）、`code-editor`（代码区）、`password`（密码框）、`readonly-or-noneditable`（只读或非输入控件）、`scope-preserve`（按范围保持）或无法获取可访问焦点。`default` 为规则目标，`preference` 为会话偏好；`observed` 仅是传统 Windows IME 接口的参考值，不保证是实际 TSF 状态。`debounce` 为焦点稳定等待时间（毫秒）。诊断不输出控件文字、窗口标题、代码或聊天内容。
+`reason` 表示规则依据：`terminal`（终端）、`editable-input`（输入框）、`code-editor`（代码区）、`password`（密码框）、`readonly-or-noneditable`（只读或非输入控件）、`scope-preserve`（按范围保持）、`search-input`（查找控件保持）或无法获取可访问焦点。`default` 为规则目标，`preference` 为会话偏好；`observed` 仅是传统 Windows IME 接口的参考值，不保证是实际 TSF 状态。`debounce` 为焦点稳定等待时间（毫秒）。诊断不输出控件文字、窗口标题、代码或聊天内容。
 
 ## 设置
 

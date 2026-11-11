@@ -22,7 +22,7 @@
   &nbsp;·&nbsp;
   <a href="docs/USAGE.md">配置指南</a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/Howzits/FlowIME/issues">反馈问题</a>
+  <a href="https://github.com/haochen12/FlowIME/issues">反馈问题</a>
 </p>
 
 <p align="center">
@@ -40,6 +40,7 @@
 | 在聊天框描述需求 | 请求中文模式 |
 | 在集成终端输入命令 | 请求英文模式 |
 | 在代码编辑区继续开发 | 保持当前输入法 |
+| 在 Markdown 预览等查找框内搜索 | 保持当前输入法 |
 
 - **用熟悉的输入法**：沿用 Windows 已配置的默认输入法，无需额外安装英语键盘。
 - **尊重你的选择**：可识别的手动中英文切换会记入当前会话；也可为输入框指定中文、英文或保持不变。
@@ -73,7 +74,7 @@ code --install-extension FlowIME.flowime
 
 ## 文档与反馈
 
-[使用、旧版迁移与故障排查](docs/USAGE.md) · [兼容性记录](docs/COMPATIBILITY.md) · [维护与发布](docs/MAINTAINING.md) · [更新日志](CHANGELOG.md) · [反馈问题](https://github.com/Howzits/FlowIME/issues/new/choose)
+[使用、旧版迁移与故障排查](docs/USAGE.md) · [兼容性记录](docs/COMPATIBILITY.md) · [维护与发布](docs/MAINTAINING.md) · [更新日志](CHANGELOG.md) · [反馈问题](https://github.com/haochen12/FlowIME/issues/new/choose)
 
 **只关注输入焦点。** 不读取代码或聊天正文，不监听按键，不联网，不上传遥测。当前仅支持 Windows 桌面版 VS Code，不提供系统全局切换。
 

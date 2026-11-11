@@ -22,7 +22,7 @@
   &nbsp;·&nbsp;
   <a href="docs/USAGE.md">Usage guide (中文)</a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/Howzits/FlowIME/issues">Report an issue</a>
+  <a href="https://github.com/haochen12/FlowIME/issues">Report an issue</a>
 </p>
 
 <p align="center">
@@ -40,6 +40,7 @@ Discuss a solution with AI in Chinese, run a command in the terminal, then retur
 | Describing a task in chat | Request Chinese mode |
 | Entering a terminal command | Request English mode |
 | Working in the code editor | Keep the current input mode |
+| Using a recognized find widget, including Markdown preview | Keep the current input mode |
 
 - **Keep your familiar IME:** use the input method already configured in Windows, with no extra English keyboard required.
 - **Make it yours:** observable manual language changes are remembered for the current session. You can also choose Chinese, English, or no intervention for an input.
@@ -73,7 +74,7 @@ Preferences do not persist across helper sessions. Switching depends on control 
 
 ## Documentation and support
 
-[Usage, migration and troubleshooting (中文)](docs/USAGE.md) · [Compatibility (中文)](docs/COMPATIBILITY.md) · [Maintenance and releases (中文)](docs/MAINTAINING.md) · [Changelog](CHANGELOG.md) · [Report an issue](https://github.com/Howzits/FlowIME/issues/new/choose)
+[Usage, migration and troubleshooting (中文)](docs/USAGE.md) · [Compatibility (中文)](docs/COMPATIBILITY.md) · [Maintenance and releases (中文)](docs/MAINTAINING.md) · [Changelog](CHANGELOG.md) · [Report an issue](https://github.com/haochen12/FlowIME/issues/new/choose)
 
 **Focused on focus.** No code or chat content is read. No keystroke listening, network requests, or telemetry. Currently limited to desktop VS Code on Windows; no system-wide switching.
 

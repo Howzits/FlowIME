@@ -59,7 +59,7 @@ code --install-extension FlowIME.flowime
 
 Enabled as soon as you install it. Type a Chinese message in chat, then enter a terminal command to try focus-based switching.
 
-The interface follows the VS Code display language: Chinese for Chinese locales, English otherwise. No extra configuration is needed.
+Commands, setting descriptions, status bar text and prompts follow the VS Code display language: Chinese for Chinese locales, English otherwise. After changing the display language, restart as prompted by VS Code. Interface language does not change input-switching rules.
 
 ## Settings
 

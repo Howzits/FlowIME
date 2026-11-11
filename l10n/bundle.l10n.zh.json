@@ -1,6 +1,6 @@
 {
   "FlowIME: English for terminals, Chinese for chat. Click to pause/enable. The target does not confirm the actual input state.": "FlowIME：终端英文 · 对话中文。点击暂停/启用。目标语言不代表已确认实际输入状态。",
-  "$(info) FlowIME: Windows only": "$(info) FlowIME: Windows only",
+  "$(info) FlowIME: Windows only": "$(info) FlowIME: 仅支持 Windows",
   "$(debug-pause) FlowIME: Paused": "$(debug-pause) FlowIME: 已暂停",
   "$(keyboard) FlowIME: Auto": "$(keyboard) FlowIME: 自动",
   "$(warning) FlowIME: Request failed": "$(warning) FlowIME: 请求失败",
@@ -16,5 +16,6 @@
   "Starting focus helper: {0}": "启动焦点助手：{0}",
   "Helper startup failed: {0}": "助手启动失败：{0}",
   "Helper exited ({0})": "助手退出 ({0})",
-  "ZH": "中"
+  "ZH": "中",
+  "EN": "英"
 }

@@ -2,7 +2,7 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const { EventEmitter } = require('node:events');
-const { readFileSync } = require('node:fs');
+const { readFileSync, existsSync } = require('node:fs');
 const { join } = require('node:path');
 const vm = require('node:vm');
 
@@ -14,8 +14,11 @@ function harness(initial = {}, language = 'zh-cn') {
   const status = { show() {}, dispose() {} };
   const output = { lines: [], appendLine(s) { this.lines.push(s); }, append(s) { this.lines.push(s); }, show() { this.shown = true; }, dispose() {} };
   let changed;
-  const translations = language.toLowerCase().startsWith('zh')
-    ? JSON.parse(readFileSync(join(__dirname, '..', 'l10n', 'bundle.l10n.zh-cn.json'), 'utf8')) : {};
+  const locale = language.toLowerCase();
+  const bundlePath = [locale, locale.split('-')[0]]
+    .map(value => join(__dirname, '..', 'l10n', `bundle.l10n.${value}.json`))
+    .find(existsSync);
+  const translations = bundlePath ? JSON.parse(readFileSync(bundlePath, 'utf8')) : {};
   const messages = [];
   const vscode = {
     l10n: { t: (message, ...args) => (translations[message] || message).replace(/\{(\d+)\}/g, (_, n) => String(args[n])) },
@@ -148,7 +151,7 @@ for (const language of ['en', 'fr', 'zh-cn', 'zh-tw']) {
     assert.match(h.status.text, chinese ? /自动/ : /Auto/);
     assert.match(h.status.tooltip, chinese ? /终端英文/ : /English for terminals/);
     h.children[0].stdout.emit('data', Buffer.from('target=en layoutRequest=True\n'));
-    assert.match(h.status.text, chinese ? /目标 EN/ : /Target EN/);
+    assert.match(h.status.text, chinese ? /目标 英/ : /Target EN/);
     h.commands.get('autoInput.diagnose')();
     assert.match(h.messages.at(-1), chinese ? /3 秒/ : /3 seconds/);
     h.children[0].stdout.emit('data', Buffer.from('preferences=cleared\n'));
@@ -163,7 +166,9 @@ test('all manifest translations resolve and runtime bundles cover every message'
   const root = join(__dirname, '..');
   const metadata = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
   const english = JSON.parse(readFileSync(join(root, 'package.nls.json'), 'utf8'));
+  assert.equal(metadata.l10n, './l10n');
   const chinese = JSON.parse(readFileSync(join(root, 'package.nls.zh-cn.json'), 'utf8'));
+  assert.deepEqual(chinese, JSON.parse(readFileSync(join(root, 'package.nls.zh.json'), 'utf8')));
   const keys = JSON.stringify(metadata).match(/%([^%]+)%/g);
   for (const placeholder of keys) {
     const key = placeholder.slice(1, -1);
@@ -172,6 +177,7 @@ test('all manifest translations resolve and runtime bundles cover every message'
   }
   const source = readFileSync(join(root, 'extension.js'), 'utf8');
   const bundle = JSON.parse(readFileSync(join(root, 'l10n', 'bundle.l10n.zh-cn.json'), 'utf8'));
+  assert.deepEqual(bundle, JSON.parse(readFileSync(join(root, 'l10n', 'bundle.l10n.zh.json'), 'utf8')));
   for (const match of source.matchAll(/vscode\.l10n\.t\((['"])(.*?)\1/g)) {
     assert.ok(bundle[match[2]], match[2]);
     assert.deepEqual(bundle[match[2]].match(/\{\d+\}/g), match[2].match(/\{\d+\}/g));

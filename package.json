@@ -2,7 +2,7 @@
   "name": "flowime",
   "displayName": "FlowIME: Auto Input Switcher",
   "description": "%description%",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "publisher": "FlowIME",
   "license": "MIT",
   "icon": "assets/icon.png",
@@ -108,7 +108,11 @@
           ],
           "default": "chinese",
           "scope": "application",
-          "description": "%autoInput.otherInputs.description%"
+          "description": "%autoInput.otherInputs.description%",
+          "enumDescriptions": [
+            "%autoInput.otherInputs.chinese.description%",
+            "%autoInput.otherInputs.preserve.description%"
+          ]
         },
         "autoInput.pollInterval": {
           "type": "integer",

@@ -61,7 +61,7 @@ function activate(context) {
         const target = /target=(en|zh) layoutRequest=(True|False)/.exec(line);
         if (target) {
           status.text = target[2] === 'True'
-            ? vscode.l10n.t('$(keyboard) FlowIME: Target {0}', target[1] === 'en' ? 'EN' : vscode.l10n.t('ZH'))
+            ? vscode.l10n.t('$(keyboard) FlowIME: Target {0}', target[1] === 'en' ? vscode.l10n.t('EN') : vscode.l10n.t('ZH'))
             : vscode.l10n.t("$(warning) FlowIME: Request failed");
         } else if (line.includes('focus=preserve')) status.text = vscode.l10n.t("$(keyboard) FlowIME: Preserved");
         else if (line.includes('No configured input method')) status.text = vscode.l10n.t("$(warning) FlowIME: Missing input method");

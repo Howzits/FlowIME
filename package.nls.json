@@ -11,5 +11,7 @@
   "autoInput.enabled.description": "Automatically request English in the terminal and Chinese in chat and dialog inputs.",
   "autoInput.rememberPreferences.description": "Remember input language preferences for the current helper session. Observable manual switches are remembered automatically; use preference commands for IMEs whose state cannot be read. Terminals still default to English; code editors are left unchanged.",
   "autoInput.otherInputs.description": "Request Chinese in other editable inputs, or preserve their input mode. In preserve mode, only recognized chat inputs and terminals are handled.",
-  "autoInput.pollInterval.description": "Focus-check interval in milliseconds. Actual switching latency depends on the control and input method."
+  "autoInput.pollInterval.description": "Focus-check interval in milliseconds. Actual switching latency depends on the control and input method.",
+  "autoInput.otherInputs.chinese.description": "Request Chinese mode in other editable inputs.",
+  "autoInput.otherInputs.preserve.description": "Preserve the current mode in other inputs; automatically handle recognized chat inputs and terminals only."
 }

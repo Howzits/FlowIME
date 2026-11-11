@@ -11,5 +11,7 @@
   "autoInput.enabled.description": "启用终端英文 / 聊天及对话框输入区域中文自动切换。",
   "autoInput.rememberPreferences.description": "在本次助手会话中记住输入框的中英文偏好。可观察的手动切换会自动记录；无法读取状态的输入法请使用偏好命令。终端仍默认英文，代码区不干预。",
   "autoInput.otherInputs.description": "其他可编辑输入框请求中文，或保持不变。preserve 模式仅处理能识别出聊天语义的输入区域和终端。",
-  "autoInput.pollInterval.description": "焦点检查间隔（毫秒）。实际切换延迟受控件与输入法影响。"
+  "autoInput.pollInterval.description": "焦点检查间隔（毫秒）。实际切换延迟受控件与输入法影响。",
+  "autoInput.otherInputs.chinese.description": "在其他可编辑输入框中请求中文模式。",
+  "autoInput.otherInputs.preserve.description": "保持其他输入框的当前输入模式，仅自动处理可识别的聊天输入框和终端。"
 }

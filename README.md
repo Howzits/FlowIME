@@ -3,12 +3,12 @@
 </p>
 
 <p align="center">
-  <strong>少切一次输入法，多一点心流。</strong><br>
-  聊天中文，终端英文，让输入跟上思路。
+  <strong>Switch less. Stay in flow.</strong><br>
+  Chinese for chat. English for the terminal. Keep your thoughts moving.
 </p>
 
 <p align="center">
-  FlowIME · 为 Windows 上的 VS Code 用户自动切换中英文输入模式。
+  FlowIME · Automatic Chinese/English input switching for VS Code on Windows.
 </p>
 
 <p align="center">
@@ -18,64 +18,64 @@
 </p>
 
 <p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=FlowIME.flowime"><strong>从 VS Code 市场安装</strong></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=FlowIME.flowime"><strong>Install from the Marketplace</strong></a>
   &nbsp;·&nbsp;
-  <a href="docs/USAGE.md">配置指南</a>
+  <a href="docs/USAGE.md">Usage guide (中文)</a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/haochen12/FlowIME/issues">反馈问题</a>
+  <a href="https://github.com/haochen12/FlowIME/issues">Report an issue</a>
 </p>
 
 <p align="center">
-  <strong>简体中文</strong> / <a href="README.en.md">English</a>
+  <a href="README.zh-CN.md">简体中文</a> / <strong>English</strong>
 </p>
 
 ---
 
-## 从中文对话，到终端命令
+## From conversation to command
 
-用中文和 AI 讨论方案，转到终端运行命令，再回到对话继续思考。FlowIME 跟随输入焦点切换中英文，减少来回操作输入法的打断。
+Discuss a solution with AI in Chinese, run a command in the terminal, then return to the conversation. FlowIME switches input modes with focus, reducing the interruptions of switching them yourself.
 
-| 你正在做什么 | FlowIME 默认行为 |
+| What you are doing | FlowIME's default behavior |
 | --- | --- |
-| 在聊天框描述需求 | 请求中文模式 |
-| 在集成终端输入命令 | 请求英文模式 |
-| 在代码编辑区继续开发 | 保持当前输入法 |
-| 在 Markdown 预览等查找框内搜索 | 保持当前输入法 |
+| Describing a task in chat | Request Chinese mode |
+| Entering a terminal command | Request English mode |
+| Working in the code editor | Keep the current input mode |
+| Using a recognized find widget, including Markdown preview | Keep the current input mode |
 
-- **用熟悉的输入法**：沿用 Windows 已配置的默认输入法，无需额外安装英语键盘。
-- **尊重你的选择**：可识别的手动中英文切换会记入当前会话；也可为输入框指定中文、英文或保持不变。
-- **少一点来回跳动**：焦点防抖过滤短暂经过的输入框，稳定停留后再切换。
-- **随时接管**：点击状态栏即可暂停；内置诊断，方便排查未识别的输入框。密码框和只读控件保持不变。
+- **Keep your familiar IME:** use the input method already configured in Windows, with no extra English keyboard required.
+- **Make it yours:** observable manual language changes are remembered for the current session. You can also choose Chinese, English, or no intervention for an input.
+- **Reduce back-and-forth switching:** focus debounce waits for a stable input before switching, filtering out brief stops along the way.
+- **Take control anytime:** click the status bar to pause; use diagnostics to investigate unrecognized inputs. Password fields and read-only controls are left unchanged.
 
-## 安装与使用
+## Install
 
-需要 **Windows x64、VS Code 1.96+ 或 Insiders**，以及已配置的中文输入法。
+Requires **Windows x64, VS Code 1.96+ or Insiders**, and a configured Chinese input method.
 
-在扩展市场搜索 **FlowIME: Auto Input Switcher**，确认发布者为 **FlowIME** 后安装，或执行：
+Search the Marketplace for **FlowIME: Auto Input Switcher**, published by **FlowIME**, or run:
 
 ```powershell
 code --install-extension FlowIME.flowime
 ```
 
-安装即启用。先在聊天框输入一句中文，再到终端输入一条命令，体验随焦点切换。
+Enabled as soon as you install it. Type a Chinese message in chat, then enter a terminal command to try focus-based switching.
 
-命令、设置说明、状态栏和操作提示跟随 VS Code 显示语言：中文显示中文，其他语言默认英文。更改显示语言并按 VS Code 提示重启后生效；输入法切换规则不受界面语言影响。
+Commands, setting descriptions, status bar text and prompts follow the VS Code display language: Chinese for Chinese locales, English otherwise. After changing the display language, restart as prompted by VS Code. Interface language does not change input-switching rules.
 
-## 常用设置
+## Settings
 
-| 设置 | 默认值 | 用途 |
+| Setting | Default | Purpose |
 | --- | --- | --- |
-| `autoInput.enabled` | `true` | 启用自动切换 |
-| `autoInput.rememberPreferences` | `true` | 记住当前会话的输入框偏好 |
-| `autoInput.otherInputs` | `chinese` | 设为 `preserve`，让搜索框等普通输入区域保持不变 |
-| `autoInput.pollInterval` | `100` | 焦点检查间隔，50–1000 ms |
+| `autoInput.enabled` | `true` | Enable automatic switching |
+| `autoInput.rememberPreferences` | `true` | Remember input preferences for the current session |
+| `autoInput.otherInputs` | `chinese` | Use `preserve` to leave ordinary inputs, such as search boxes, unchanged |
+| `autoInput.pollInterval` | `100` | Focus-check interval in milliseconds, from 50 to 1000 |
 
-偏好不跨助手会话保存。切换效果依赖控件与输入法支持，状态栏显示的是请求目标，不代表已确认实际输入状态；未识别的聊天框可能需要适配。
+Preferences do not persist across helper sessions. Switching depends on control accessibility and IME support. The status bar shows the requested target, not a verified input state; unrecognized chat inputs may need adaptation.
 
-## 文档与反馈
+## Documentation and support
 
-[使用、旧版迁移与故障排查](docs/USAGE.md) · [兼容性记录](docs/COMPATIBILITY.md) · [维护与发布](docs/MAINTAINING.md) · [更新日志](CHANGELOG.md) · [反馈问题](https://github.com/haochen12/FlowIME/issues/new/choose)
+[Usage, migration and troubleshooting (中文)](docs/USAGE.md) · [Compatibility (中文)](docs/COMPATIBILITY.md) · [Maintenance and releases (中文)](docs/MAINTAINING.md) · [Changelog](CHANGELOG.md) · [Report an issue](https://github.com/haochen12/FlowIME/issues/new/choose)
 
-**只关注输入焦点。** 不读取代码或聊天正文，不监听按键，不联网，不上传遥测。当前仅支持 Windows 桌面版 VS Code，不提供系统全局切换。
+**Focused on focus.** No code or chat content is read. No keystroke listening, network requests, or telemetry. Currently limited to desktop VS Code on Windows; no system-wide switching.
 
-开发者：**haochen12** · [MIT License](LICENSE) · 独立项目，与 AI 助手厂商无隶属关系。
+Developed by **haochen12** · [MIT License](LICENSE) · Independent project, not affiliated with AI assistant vendors.

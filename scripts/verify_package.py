@@ -33,7 +33,7 @@ def verify(path, expected, source_root=ROOT, compare_helper=True):
         if not any(a.get("Type") == "Microsoft.VisualStudio.Services.Icons.Default" and a.get("Path") == icon_path for a in asset_icons):
             raise ValueError("Missing VSIX icon asset")
         localized = ("package.nls.json", "package.nls.zh.json", "package.nls.zh-cn.json", "l10n/bundle.l10n.zh.json", "l10n/bundle.l10n.zh-cn.json") if expected.get("l10n") else ()
-        for member in localized + ("extension.js", "bin/InputHelper.exe", package["icon"], "README.en.md", "docs/USAGE.md", "docs/COMPATIBILITY.md"):
+        for member in localized + ("extension.js", "bin/InputHelper.exe", package["icon"], "README.en.md", "README.zh-CN.md", "docs/USAGE.md", "docs/COMPATIBILITY.md"):
             packaged = archive.read("extension/" + member)
             if member == "bin/InputHelper.exe" and not compare_helper:
                 if not packaged.startswith(b"MZ"):
@@ -42,7 +42,9 @@ def verify(path, expected, source_root=ROOT, compare_helper=True):
             if packaged != (source_root / member).read_bytes():
                 raise ValueError(f"Runtime file differs from source: {member}")
         # vsce normalizes names and rewrites README links for the public repository.
-        archive.read("extension/readme.md")
+        readme = archive.read("extension/readme.md").decode("utf-8")
+        if "Switch less. Stay in flow." not in readme or "README.zh-CN.md" not in readme:
+            raise ValueError("Marketplace Details must use English with a Chinese documentation link")
         if any(name.startswith(("extension/.validation/", "extension/node_modules/", "extension/.github/", "extension/dist/", "extension/native/")) for name in archive.namelist()):
             raise ValueError("Build-only files leaked into VSIX")
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.8
+
+- Marketplace Details 与默认 README 改为英文，保留顶部简体中文文档入口。
+- 中文说明迁移至 README.zh-CN.md；插件界面仍跟随 VS Code 显示语言。
+
 ## 0.5.7
 
 - 补齐跟随 VS Code 显示语言的中英文文案：平台提示、输入目标和设置选项说明。
